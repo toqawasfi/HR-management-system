@@ -25,4 +25,45 @@
 }
 body {
     background-color: #7929ae2b;
+   
+    
+}
+
+
+footer {
+  /* margin-top: auto; */
+  width :100%;
+  background-color: #7f2bb7f2;
+  font-family: 'Righteous', cursive;
+  padding: 38px;
+    bottom:0;
+    left: 100px;
+
+}
+
+
+#social-media {
+  background-color: #7f2bb7f2;
+  position: absolute;
+    bottom: 18px;
+    text-align: center;
+    left: 90%;
+    font-weight: bold;
+    
+}
+
+/* #social-media p {
+  margin: 0 20px 20px 0;
+} */
+
+#copy-rights {
+  background-color: #7f2bb7f2;
+  font-weight: bold;
+  position: absolute;
+ bottom: 18px;
+  text-align: center;
+  left: 540px;
+  color: blanchedalmond;
+  position: fixed;
+  text-align: center;
 }
