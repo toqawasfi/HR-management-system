@@ -52,17 +52,42 @@ let omar = new Employee('1004','Omar Zaid','Development','Senior','/assests/Conn
 let rana = new Employee('1005','Rana Saleh','Development','Junior','/assests/Connect.png');
 let hadi = new Employee('1006','Hadi Ahmad','Finance','Mid-Senior','/assests/Connect.png');
 
-let gaziResult = gazi.salaryLevel();
-let lanaResult =lana.salaryLevel();
-let tamerResult = tamer.salaryLevel();
-let saifResult= saif.salaryLevel();
-let omarResult= omar.salaryLevel();
-let ranaResult = rana.salaryLevel();
+ gazi.salaryLevel();
+lana.salaryLevel();
+ tamer.salaryLevel();
+ saif.salaryLevel();
+ omar.salaryLevel();
+ rana.salaryLevel();
 let hadiResult = hadi.salaryLevel();
-gazi.render();
-lana.render();
-tamer.render();
-saif.render();
-omar.render();
-rana.render();
-hadi.render();
+// gazi.render();
+// lana.render();
+// tamer.render();
+// saif.render();
+// omar.render();
+// rana.render();
+// hadi.render();
+function Employeesform(fullname, depselect, levelselect, imgUrl ) {
+    this.fullname = fullname;
+    this.depselect = depselect;
+    this.levelselect = levelselect;
+    this.imgUrl = imgUrl; 
+    this.employeeId=0;  
+}
+let id =1000;
+Employeesform.prototype.employeeId=function(){
+    employeeId= id++;
+   return id; 
+}
+let employeeForm = document.getElementById("employeeForm");
+employeeForm.addEventListener('submit', addNewemployeeHandler);
+function addNewemployeeHandler(event) {
+    event.preventDefault();
+    let fullname = event.target.fullname.value;
+    let depselect = event.target.depselect.value;
+    let levelselect = event.target.levelselect.value;
+    let imgPath = event.target.imgUrl.value;
+}
+
+    let newEmployee = new Employeesform(fullname,depselect,levelselect,imgUrl);
+    newEmployee.employeeId();
+    newEmployee.render();
