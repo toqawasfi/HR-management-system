@@ -1,13 +1,13 @@
 'use strict';
 
 // console.log("hi") checking up my linking 
-function Employee(employeeID, fullName, department, level) {
-    this.employeeID = employeeID;
+function Employee(fullName, department, level, img) {
     this.fullName = fullName;
     this.department = department;
     this.level = level;
-    this.img = " ";
+    this.img = img;
     this.netSalary = 0;
+    this.employeeId = 0;
 }
 
 Employee.prototype.salaryLevel = function () {
@@ -34,50 +34,50 @@ Employee.prototype.salaryLevel = function () {
     rand = Math.floor(rand * difference);
     rand = rand + min;
     this.netSalary = rand - (rand * 0.075);
-    console.log(this.netSalary);
     return this.netSalary;
+
 
 }
 //My second prototype
 Employee.prototype.render = function () {
-    document.write(`The Name & The salary are : ${this.fullName} ${this.netSalary} <br>`);//intepolation
-    
-}
-    
-let gazi = new Employee('1000', 'Ghazi Samer', 'Administration', 'Senior','/assests/Connect.png');
-let lana = new Employee('1001','Lana Ali','	Finance','Senior','/assests/Connect.png');
-let tamer = new Employee('1002','Tamara Ayoub','Marketing','Senior','/assests/Connect.png');
-let saif = new Employee('1003','Safi Walid','Administration','Mid-Senior','/assests/Connect.png');
-let omar = new Employee('1004','Omar Zaid','Development','Senior','/assests/Connect.png');
-let rana = new Employee('1005','Rana Saleh','Development','Junior','/assests/Connect.png');
-let hadi = new Employee('1006','Hadi Ahmad','Finance','Mid-Senior','/assests/Connect.png');
+    // document.write(`The Name & The salary are : ${this.fullName} ${this.netSalary} ${this.employeeId}<br>`);//intepolation
+    const container = document.getElementById('cards');
+    const divEl = document.createElement('div');
+    container.appendChild(divEl);
 
- gazi.salaryLevel();
-lana.salaryLevel();
- tamer.salaryLevel();
- saif.salaryLevel();
- omar.salaryLevel();
- rana.salaryLevel();
-let hadiResult = hadi.salaryLevel();
-// gazi.render();
-// lana.render();
-// tamer.render();
-// saif.render();
-// omar.render();
-// rana.render();
-// hadi.render();
-function Employeesform(fullname, depselect, levelselect, imgUrl ) {
-    this.fullname = fullname;
-    this.depselect = depselect;
-    this.levelselect = levelselect;
-    this.imgUrl = imgUrl; 
-    this.employeeId=0;  
+    const nameEl = document.createElement('h3');
+    divEl.appendChild(nameEl);
+    nameEl.textContent = this.fullName;
+    
+    const departmentEl = document.createElement('p');
+    divEl.appendChild(departmentEl);
+    departmentEl.textContent = this.level;
+
+   
+    const imgEl = document.createElement('img');
+    divEl.appendChild(imgEl);
+    imgEl.setAttribute('src',this.img);
+    imgEl.width = "150";
+    imgEl.height = "150";
+ 
+    const salaryEl = document.createElement('p');
+    divEl.appendChild( salaryEl);
+    salaryEl.textContent = this.netSalary;
+
+    const idEl =  document.createElement('p');
+    divEl.appendChild( idEl);
+    idEl.textContent = this.employeeId;
+
 }
-let id =1000;
-Employeesform.prototype.employeeId=function(){
-    employeeId= id++;
-   return id; 
+
+
+let id = 1000;
+Employee.prototype.uniqueId = function () {
+    this.employeeId = id++;
+    return this.employeeId ;
 }
+
+
 let employeeForm = document.getElementById("employeeForm");
 employeeForm.addEventListener('submit', addNewemployeeHandler);
 function addNewemployeeHandler(event) {
@@ -86,8 +86,44 @@ function addNewemployeeHandler(event) {
     let depselect = event.target.depselect.value;
     let levelselect = event.target.levelselect.value;
     let imgPath = event.target.imgUrl.value;
-}
-
-    let newEmployee = new Employeesform(fullname,depselect,levelselect,imgUrl);
-    newEmployee.employeeId();
+    let newEmployee = new Employee(fullname, depselect, levelselect, imgPath);
+    newEmployee.salaryLevel();
+    newEmployee.uniqueId();
     newEmployee.render();
+}
+// const divs = document.getElementsByClassName('divs');
+// //for 
+// const imgEl = document.createElement('img');
+//   imgEl.src=this.img;
+
+//   [0].appendChild(imgEl); 
+
+
+
+
+// let gazi = new Employee('Ghazi Samer', 'Administration', 'Senior', './assests/Ghazi.jpg');
+// let lana = new Employee('Lana Ali', '	Finance', 'Senior', './assests/Lana.jpg');
+// let tamer = new Employee('Tamara Ayoub', 'Marketing', 'Senior', './assests/Tamara.jpg');
+// let saif = new Employee('Safi Walid', 'Administration', 'Mid-Senior', './assests/Safi.jpg');
+// let omar = new Employee('Omar Zaid', 'Development', 'Senior', './assests/Omar.jpg');
+// let rana = new Employee('Rana Saleh', 'Development', 'Junior', './assests/Rana.jpg');
+// let hadi = new Employee('Hadi Ahmad', 'Finance', 'Mid-Senior', './assests/Hadi.jpg');
+
+// gazi.salaryLevel();
+// lana.salaryLevel();
+// tamer.salaryLevel();
+// saif.salaryLevel();
+// omar.salaryLevel();
+// rana.salaryLevel();
+
+// gazi.uniqueId();
+// lana.uniqueId();
+
+// gazi.render();
+// lana.render();
+// tamer.render();
+// saif.render();
+// omar.render();
+// rana.render();
+// hadi.render();
+
