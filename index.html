@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"href="./css/style.css">
-    <link rel="stylesheet"href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/reset.css">
     <script src="https://kit.fontawesome.com/4f7fe5e387.js" crossorigin="anonymous"></script>
     <title>Home</title>
 </head>
@@ -13,18 +14,65 @@
 <body>
     <header>
         <section>
-            <div class ="image1">
-                <img src ="./assests/Connect.png">
-              </div>
+            <div class="image1">
+                <img src="./assests/Connect.png">
+            </div>
         </section>
-    <section>
-        <nav>
-            <ul class="menu">
-                <li><a class ="button" id="home" href="./index.html">Home</a></li>
-                <li><a class ="button" id="accounting" href="./accounting.html">Accounting</a></li>
-        </nav>
+        <section>
+            <nav>
+                <ul class="menu">
+                    <li><a class="button" id="home" href="./index.html">Home</a></li>
+                    <li><a class="button" id="accounting" href="./accounting.html">Accounting</a></li>
+            </nav>
         </section>
     </header>
+    <main>
+    
+        <form id="employeeForm">
+
+            <fieldset>
+                <legend>Add new employee</legend>
+                <label for="fullname">fullName:</label>
+                <input type="text" name="fullname" id="fullname" placeholder="fullName" required>
+                <br><br>
+                <label for="depselect">depselect:</label>
+                <select id="depselect" name="depselect">
+                    <option value="Administration">Administration</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Development">Development</option>
+                    <option value="Finance">Finance</option>
+                </select>
+
+                <br><br>
+
+                <label for=levelselect>levelselect:</label>
+                <select id="levelselect" name="levelselect">
+                    <option value="Junior">Junior</option>
+                    <option value="Mid-Senior">Mid-Senior</option>
+                    <option value="Senior">Senior</option>
+                </select>
+                <br><br>
+                <label for="imgUrl">Image</label>
+                <input type="text" name="imgUrl" id="imgUrl" placeholder="image path">
+                <br><br>
+                <input type="submit" value="submit">
+                <!-- <div class="divs">
+                    
+                    <div  id="1"></div>
+                    <div  id="2"></div>
+                    <div  id="3"></div>
+                    <div  id="4"></div>
+                    <div  id="5"></div>
+                    <div  id="6"></div>
+                    <div  id="7"></div>
+                </div> -->
+          
+            </fieldset>
+        </form>
+        <div id ="cards">
+
+        </div>
+    </main>
     <footer>
         <div id="copy-rights">
             <p> ©2022. All Rights Reserved</p>
@@ -36,7 +84,8 @@
             <i class="fab fa-whatsapp"></i>
         </div>
     </footer>
-    <!-- import js code -->
-    <script src="./js/app.js"></script> 
+
+    <script src="./js/app.js"></script>
 </body>
+
 </html>
